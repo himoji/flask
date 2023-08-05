@@ -1,6 +1,23 @@
-# flask
-A minimal Flask web application.
+# Flask Web App Tutorial
 
-For a step-by-step guide to deploying on [Railway](https://railway.app/?referralCode=alphasec), see [this](https://alphasec.io/how-to-deploy-a-python-flask-app-on-railway/) post, or click the button below.
+## Setup & Installation
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/igzwwg?referralCode=alphasec)
+Make sure you have the latest version of Python installed.
+
+```bash
+git clone <repo-url>
+```
+
+```bash
+pip install -r requirements.txt
+```
+
+## Running The App
+
+```bash
+python main.py
+```
+
+## Viewing The App
+
+Go to `http://127.0.0.1:5000`

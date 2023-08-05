@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<br>
+<h1 align="center">Hello, {{user.first_name}}!</h1>
+<h2 align="center">{{user.money}}$</h2>
+<br>
+<h2 align="center"><a href="/deposit">Deposit</a></h2>
+<h2 align="center"><a href="/withdraw">Withdraw</a></h2>
+<!--<h2 align="center"><a href="/send">Send</a></h2>-->
+<h2 align="center"><a href="/bonus">Question</a></h2>
+<h2 align="center"><a href="/question">Question (DEBUG)</a></h2>
+<h2 align="center"><a href="/stocks">Stocks</a></h2>
+<h2 align="center"><a href="/taxes">Taxes</a></h2>
+<h2 align="center"><a href="/info">Info</a></h2>
+
+{% endblock %}

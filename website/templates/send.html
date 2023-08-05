@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block title %}Send{% endblock %} {% block content
+%}
+<style>
+    .container {
+      text-align: center;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .input-field {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .black-button {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+  }
+  .black-button:hover {
+      background-color: rgba(204, 202, 202, 0.808);
+      color: rgba(255, 255, 255, 0.747)55, 255, 255);
+  }
+</style>
+
+<div class="container">
+    
+    <h1>Send</h1>
+
+    <form method="post">
+      
+      <input type="number" id="id" name="id" class="input-field" placeholder="Enter ID of taker" min="1" max="2147483647">
+
+      <input type="number" id="money" name="money" class="input-field" placeholder="Enter amount" min="1" max="2147483647">
+
+    
+        <button class="black-button">Send</button>
+
+    </form>
+  </div>
+
+{% endblock %}
