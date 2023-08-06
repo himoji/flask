@@ -18,5 +18,6 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
     money = db.Column(db.Integer, default=0)
+    answered = db.Column(db.String(300))
     notes = db.relationship('Note')
     # TODO: stocks, fees
