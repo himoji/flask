@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block title %}Question{% endblock %} {% block content
+    %}
+    <h1 align="center">Question</h1>
+    <ul class="list-group list-group-flush" id="notes">
+      {% for note in user.notes %}
+      <li class="list-group-item">
+        {{ note.data }} : {{ note.answer }}
+        <button type="button" class="btn-close" onClick="deleteNote({{ note.id }})" aria-label="Close">
+        </button>
+      </li>
+      {% endfor %}
+    </ul>
+    <form method="POST">
+      <textarea name="note" id="note" class="form-control"></textarea>
+      <br />
+      <input type="text" id="answer" name="answer" class="form-control" placeholder="Enter yes/no answer">
+      <br>
+      <input type="number" id="bounty" name="bounty" class="form-control" placeholder="Enter bounty" min="1" max="2000000000">
+      <br>
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Add Question</button>
+      </div>
+    </form>
+    {% endblock %}
