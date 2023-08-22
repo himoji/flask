@@ -10,7 +10,7 @@ class Note(db.Model):
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     answer = db.Column(db.String(3))
-    bounty = db.Column(db.Integer, default = 100)
+    bounty = db.Column(db.Integer, default = 100) 
 
 class Transaction(db.Model):
     id = db.Column(db.Integer, primary_key=True)

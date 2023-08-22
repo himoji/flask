@@ -1,46 +1,58 @@
 {% extends "base.html" %} {% block title %}Deposit{% endblock %} {% block content
-%}
-<style>
-    .container {
-      text-align: center;
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-    .input-field {
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-    .black-button {
-      background-color: black;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s;
-  }
-  .black-button:hover {
-      background-color: rgba(204, 202, 202, 0.808);
-      color: rgba(255, 255, 255, 0.747)55, 255, 255);
-  }
-</style>
-
-<div class="container">
-    
+  %} <div class="container">
+    <br>
     <h1>Deposit</h1>
-
+    <br>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Deposit principal</span>
+      <input type="number" class="form-control" id="money" aria-label="Amount (to the nearest dollar)" min="10" max="3000000" onchange="updateSpan()">
+      <span class="input-group-text">$</span>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text">Interest rate        </span>
+      <input type="number" class="form-control" id="irate" aria-label="Disabled input example" value="16.54" disabled readonly>
+      <span class="input-group-text">%</span>
+    </div>
+    <div class="input-group mb-3">
+      <label for="maturity" class="form-label">Maturity (3/6/12) months</label>
+      <input type="range" class="form-range" min="1" max="3" id="maturity" onchange="updateSpan()">
+    </div>
     <form method="post">
-
-        <input type="number" id="money" name="money" class="input-field" placeholder="Enter amount" min="1" max="2147483647">
+      <div class="input-group mb-3">
+        <span class="input-group-text">Total amount      </span>
+        <input type="number" name="total_amount" class="form-control" id="total_amount"></input disabled readonly>
     
-        <button class="black-button">Deposit</button>
-
+        <span class="input-group-text">$</span>
+        <br>
+      </div>
+      <label class="text" style="font-size: smaller; font-style: italic;">Total amount is Deposit principal + percentage</label>
+      <br>
+      <br>
+      <button class="btn btn-primary">Deposit</button>
     </form>
   </div>
-
-{% endblock %}
+  <script>
+    function updateSpan() {
+      var rangeValue = document.getElementById("maturity").value;
+      var resultSpan = document.getElementById("irate");
+      var totalInput = document.getElementById("total_amount");
+      var depositValue = document.getElementById("money");
+      switch (rangeValue) {
+        case "1":
+          resultSpan.value = 16.21;
+          totalInput.value = Math.round(depositValue.value * Math.pow((1 + resultSpan.value / 100 / 12), rangeValue));
+          break;
+        case "2":
+          resultSpan.value = 16.54;
+          totalInput.value = Math.round(depositValue.value * Math.pow((1 + resultSpan.value / 100 / 12), rangeValue));
+          break;
+        case "3":
+          resultSpan.value = 17.23;
+          totalInput.value = Math.round(depositValue.value * Math.pow((1 + resultSpan.value / 100 / 12), rangeValue));
+          break;
+        default:
+          resultSpan.value = 16;
+          break;
+      }
+    }
+  </script> {% endblock %}

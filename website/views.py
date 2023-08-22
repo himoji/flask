@@ -89,7 +89,7 @@ def bonus():
 @login_required
 def deposit():
     if request.method == 'POST': 
-        money = request.form.get('money')
+        money = request.form.get('total_amount')
 
         try:
             if int(money) < 1:
